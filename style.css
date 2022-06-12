@@ -4,12 +4,12 @@
 }
 .box{
 	width: 450 px;
-	background: rgba(0,0,0,0.4);
+	background: rgba(0,0,0,0);
 	padding: 40 px;
 	text-align: center;
 	margin: auto;
 	margin-top: 5%;
-	color: white;
+	color: black;
 	font-family: 'Noto Sans', sans-serif;
 }
 .box h1{
