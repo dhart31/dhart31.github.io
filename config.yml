@@ -1,0 +1,30 @@
+baseURL: "https://adityatelange.github.io/hugo-PaperMod/"
+title: Derek Hart
+copyright: "© [PaperMod Contributors](https://github.com/adityatelange/hugo-PaperMod/graphs/contributors)"
+paginate: 5
+theme: [hugo-PaperMod]
+params:
+  defaultTheme: auto
+  profileMode:
+    enabled: true
+    title: "Derek Hart, Ph.D."
+    subtitle: "Hello! I'm a bioinformatician and data engineer working at the CDC. I earned my doctorate at Georgia Tech in 2022, specializing in single-molecule biophysics."
+    imageUrl: "images/me.jpg"
+    imageWidth: "300px"
+    imageHeight: "400px"
+    buttons:
+      - name: "Blog"
+        url: "posts"
+      - name: "Resume"
+        url: "files/Derek_Hart_Resume.pdf"
+      - name: "CV"
+        url: "files/Derek_Hart_CV.pdf"
+  socialIcons: # optional
+    - name: "email"
+      url: "mailto:derekjordanhart@gmail.com"
+    - name: "linkedin"
+      url: "https://www.linkedin.com/in/derekhart0/"
+    - name: "github"
+      url: "https://github.com/dhart31"
+    - name: "orcid"
+      url: "https://orcid.org/0009-0001-2549-513X"
