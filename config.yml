@@ -2,12 +2,15 @@ baseURL: "https://adityatelange.github.io/hugo-PaperMod/"
 title: Derek Hart
 copyright: "© [PaperMod Contributors](https://github.com/adityatelange/hugo-PaperMod/graphs/contributors)"
 paginate: 5
+enableEmoji: true
 theme: [hugo-PaperMod]
 params:
   defaultTheme: auto
+  ShowWordCount: true
+  math: true
   profileMode:
     enabled: true
-    title: "Derek Hart, Ph.D."
+    title: "Derek Hart, Ph.D. 🧬"
     subtitle: "Hello! I'm a bioinformatician and data engineer working at the CDC. I earned my doctorate at Georgia Tech in 2022, specializing in single-molecule biophysics."
     imageUrl: "images/me.jpg"
     imageWidth: "300px"
@@ -15,10 +18,10 @@ params:
     buttons:
       - name: "Blog"
         url: "posts"
-      - name: "Resume"
-        url: "files/Derek_Hart_Resume.pdf"
       - name: "CV"
         url: "files/Derek_Hart_CV.pdf"
+      - name: "Projects"
+        url: "projects"
   socialIcons: # optional
     - name: "email"
       url: "mailto:derekjordanhart@gmail.com"
@@ -28,3 +31,34 @@ params:
       url: "https://github.com/dhart31"
     - name: "orcid"
       url: "https://orcid.org/0009-0001-2549-513X"
+menu:
+  main:
+    - name: "Blog"
+      url: "posts"
+    - name: "CV"
+      url: "files/Derek_Hart_CV.pdf"
+    - name: "Projects"
+      url: "projects"
+    - name: "Search"
+      url: "search"
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+markup:
+  goldmark:
+    extensions:
+      passthrough:
+        delimiters:
+          block:
+          - - \[
+            - \]
+          - - $$
+            - $$
+          inline:
+          - - \(
+            - \)
+        enable: true
+
