@@ -19,7 +19,7 @@ params:
       - name: "Blog"
         url: "posts"
       - name: "CV"
-        url: "files/Derek_Hart_CV.pdf"
+        url: "static/derek_hart_cv.pdf"
       - name: "Projects"
         url: "projects"
   socialIcons: # optional
