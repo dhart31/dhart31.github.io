@@ -36,7 +36,7 @@ menu:
     - name: "Blog"
       url: "posts"
     - name: "CV"
-      url: "/derek_hart_CV.pdf"
+      url: "/derek_hart_cv.pdf"
     - name: "Projects"
       url: "projects"
     - name: "Search"
