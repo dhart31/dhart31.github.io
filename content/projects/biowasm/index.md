@@ -2,7 +2,7 @@
 title = "Identifying unique amplicon sequences with Biowasm"
 +++
 
-This is a simple reference-based mapping and duplicate removal pipeline that works entirely in the browser via [Biowasm](https://biowasm.com/). Handy for small runs. You can check out source code [here](https://github.com/dhart31/dhart31.github.io/blob/main/content/projects/biowasm/index.md?plain=1)
+This is a simple reference-based mapping and duplicate removal pipeline that works entirely in the browser via [Biowasm](https://biowasm.com/). Handy for small runs. You can check out source code [here](https://github.com/dhart31/dhart31.github.io/blob/main/content/projects/biowasm/index.md?plain=1).
 
 It performs the following steps:
 1. Trim and merge paired reads with [fastp](https://github.com/OpenGene/fastp).
