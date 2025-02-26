@@ -20,7 +20,7 @@ params:
       - name: "Blog"
         url: "posts"
       - name: "CV"
-        url: "/derek_hart_cv.pdf"
+        url: "cv"
       - name: "Projects"
         url: "projects"
   socialIcons: # optional
@@ -37,7 +37,7 @@ menu:
     - name: "Blog"
       url: "posts"
     - name: "CV"
-      url: "/derek_hart_cv.pdf"
+      url: "cv"
     - name: "Projects"
       url: "projects"
     - name: "Search"
