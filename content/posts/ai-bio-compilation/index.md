@@ -5,7 +5,9 @@ showToc: true
 summary: ""
 ---
 
-Keeping track of the stream of ML applications in biology (for better or worse)
+Keeping track of the ongoing stream of ML applications in biology (for better or worse)
+
+
 ## February 19, 2025: Evo 2
 
 ### Data
@@ -29,3 +31,15 @@ This is an "agent" system built on Gemini 2.0; the training data for this LLM, l
 The paper states that a team of specialized agents underpin the model. An [agent](https://www.kaggle.com/whitepaper-agents) is tech marketing-speak for an LLM embedded in a runtime along with a toolset, memory, etc. The more rigorous thinking is outsourced to focused, intentionally designed scientific models (eg Alphafold)
 
 Perhaps the most notable agent is the ranking agent, which uses competitive strategies like self-play/tournaments. They do mention that the ranking agent uses auto-evaluated ELO or expert assessments to compare hypotheses; hence the rankings are not based on objective ground truth (their words, not mine). In fairness, they do say that they want "more objective, less intrinsically-favored evaluation metrics". I suspect those metrics will turn out to be ... experimental results.
+
+## January 7, 2025: [Nationwide real-world implementation of AI for cancer detection in population-based mammography screening](https://www.nature.com/articles/s41591-024-03408-6#Sec10)
+
+### Data
+
+This study (PRAIM), which claims to be the largest to use AI for mammography screenings, uses 2 million images, 10% of which were annotated by radiologists. Approximately half a million women participated in the subsequent screening study, with 260k assigned to the AI-supported double reading group. 
+
+Associated with each examination, they also collected a set of [metadata](https://datadryad.org/dataset/doi:10.5061/dryad.zs7h44jgn#readme).
+
+### Model
+
+The programme used a proprietary software created by [Vara](https://www.vara.ai/praim). There is not much detail given on the image processing model, beyond a comment that it consists of a combination of deep convolutional neural networks. Regardless, the image scores are joined with associated priors in an aggregation model. A clever ethical strategy of Vara's tech is to optimize for both specificity and sensitivity and incorporate them both into the examination flowchart. 
