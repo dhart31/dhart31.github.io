@@ -12,7 +12,7 @@ params:
   profileMode:
     enabled: true
     title: "Derek Hart, Ph.D. 🧬"
-    subtitle: "Hello! I'm a data engineer at the NIH, helping modernize the Sequence Read Archive. I earned my doctorate at Georgia Tech in 2022, specializing in single-molecule biophysics."
+    subtitle: "Hello! I'm a data wrangler at the NIH, helping modernize the Sequence Read Archive. I earned my doctorate at Georgia Tech in 2022, specializing in single-molecule biophysics."
     imageUrl: "images/me.jpg"
     imageWidth: "300px"
     imageHeight: "400px"
