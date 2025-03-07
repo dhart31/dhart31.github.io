@@ -13,3 +13,21 @@ summary: A set of tools and templates for basic bioinformatics tasks
 - [Cleaning FASTA headers](https://github.com/dhart31/bioinformatics/blob/master/scripts/tidy_transcripts_fasta.pl): clean FASTA headers with regex
 - [Counting bases](https://github.com/dhart31/bioinformatics/blob/master/scripts/count_bases.pl): calculates per-base totals/percentages of a fasta, distinguishing between repetitive and non-repetitive bases.
 - [Plot coverage](https://github.com/dhart31/bioinformatics/blob/master/ref_assembly/scripts/plot_coverage.py): creates an interactive coverage plot from a set of bed files. Uses Bokeh.
+
+# One-liners
+
+- Get number of lines from a raw content URL
+
+```
+wget -q -O - [url here] | grep '>' | wc -l
+```
+
+- Get lengths of a fasta sequence
+```
+awk '/^>/ {if (len) print len; len=0; next} {len += length($0)} END {if (len) print len}' sequence.fasta
+```
+
+- Get basic statistics from a stream of numbers (e.g. fasta lengths). Requires [r-base](https://anaconda.org/conda-forge/r-base).
+```
+[cmd] | R -q -e 'x <-scan(file("stdin")); summary(x); sd(x)'
+```
