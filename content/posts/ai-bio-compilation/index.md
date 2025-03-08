@@ -9,10 +9,10 @@ Keeping track of the ongoing stream of ML applications in biology (for better or
 
 ## March 5, 2025: [Prohormone prediction uncovers a non-incretin anti-obesity peptide](https://www.nature.com/articles/s41586-025-08683-y#Sec13)
 
-## Data
+### Data
 The computational side of this project extracted canonical sequences from reviewed, secreted human genes retrieved from UniProtKB (an EMBL-EBI and SIB consortium). The resulting fasta was fairly small (~2000 records). However, these sequences were not training data; the subsequent bioactivity prediction tools relied on several academic, manually-curated peptide datasets: APD3, BioDADPep, BIOPEP-UWM, CancerPPD, CAMPR3, DBAASP, LAMP2, NeuroPedia, NeuroPep, PeptideDB, and SATPdb. 
 
-## Model
+### Model
 The bioactivity step uses neural network models [MultiPep](https://pmc.ncbi.nlm.nih.gov/articles/PMC8665375/) and [PeptideRanker](https://pmc.ncbi.nlm.nih.gov/articles/PMC3466233/), both convolutional neural networks. 
 
 Multipep's starting conv. layers range from 4-40 amino acids. These are pooled and churned through iterations of dense+dropout. The resulting outputs are used to predict a peptide class hierachy w/ some simple sigmoid or max operations. PeptideRanker is entirely different: it scans a window across the peptide, applying a 2 layer NN to each window chunk. These are summed together, and fed through another 2 layer NN.  
