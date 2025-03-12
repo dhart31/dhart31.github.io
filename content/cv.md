@@ -11,7 +11,7 @@ Cell: 303-501-7428
 
 ### [Black Canyon Consulting (Contractor for the NIH)](https://www.bccdc.net/) ###
 **Data Wrangler**, February 2025 - present
-- Designed and implemented a database-backed web application with [Flask](https://flask.palletsprojects.com/en/stable/), [Dash](https://dash.plotly.com/), and [DuckDB](https://duckdb.org/) to analyze data storage trends for the [Sequence Read Archive](https://www.ncbi.nlm.nih.gov/sra).
+- Designed and implemented a database-backed web application with [Flask](https://flask.palletsprojects.com/en/stable/), [Dash](https://dash.plotly.com/), and [DuckDB](https://duckdb.org/) to analyze petabyte-scale data storage trends for the [Sequence Read Archive](https://www.ncbi.nlm.nih.gov/sra).
 ### [ASRT, Inc. (Contractor for the CDC)](https://www.asrtinc.com/)
 **Data Manager**, December 2022 - January 2025
 
