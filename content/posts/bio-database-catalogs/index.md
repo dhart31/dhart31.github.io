@@ -27,6 +27,7 @@ summary: ""
 - [Broad Institute Github](https://github.com/orgs/broadinstitute/repositories)
 - [Caltech Pachter Lab Software (gget, kallisto, ffq)](https://github.com/pachterlab)
 - [Chan Zuckerberg Biohub Network Tools](https://www.czbiohub.org/tools/)
+- [Chan Zuckerberg CELLxGENE datasets](https://cellxgene.cziscience.com/datasets)
 - [DrugBank Data Library](https://go.drugbank.com/data_packages)
 - [Harvard MCB Library Quicklinks](https://www.mcb.harvard.edu/library-quicklinks/)
 - [Harvard Heng Li Software (minmap,bwa,seqtk, etc)](http://liheng.org/sw.shtml) [Github](https://github.com/lh3?tab=repositories)
