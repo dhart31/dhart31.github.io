@@ -35,6 +35,7 @@ summary: ""
 - [NCBI Resource List](https://www.ncbi.nlm.nih.gov/guide/all/)
 - [NCBI Github](https://github.com/ncbi)
 - [NCI Data Catalog](https://datascience.cancer.gov/resources/nci-data-catalog)
+- [NIH-supported Scientific Data Repositories](https://sharing.nih.gov/data-management-and-sharing-policy/sharing-scientific-data/repositories-for-sharing-scientific-data)
 - [NHGRI Tools and Resources](https://www.genome.gov/research-at-nhgri/Data-Tools-and-Resources)
 - [NIAID Data Ecosystem](https://data.niaid.nih.gov/#)
 - [NY Genome Center Satija Lab Software (seurat)](https://github.com/orgs/satijalab/repositories)
