@@ -14,8 +14,9 @@ summary: ""
 - [Github Awesome Public Datasets - Biology](https://github.com/awesomedata/awesome-public-datasets?tab=readme-ov-file#biology)
 - [Nucleic Acids Research (NAR) Database Summary Paper Category List](https://www.oxfordjournals.org/nar/database/c)
 - [OpenGene - Open Source Genomics Toolbox](https://github.com/OpenGene)
+- [scverse packages](https://scverse.org/packages/#core-packages)
 - [Wikpedia: List of bioinformatics software](https://en.wikipedia.org/wiki/List_of_bioinformatics_software)
-- [WIkipedia: List of RNA-Seq bioinformatics tools](https://en.wikipedia.org/wiki/List_of_RNA-Seq_bioinformatics_tools)
+- [Wikipedia: List of RNA-Seq bioinformatics tools](https://en.wikipedia.org/wiki/List_of_RNA-Seq_bioinformatics_tools)
 - [Wikipedia: List of biological databases](https://en.wikipedia.org/wiki/List_of_biological_databases)
 - [Wikipedia: List of biology journals](https://en.wikipedia.org/wiki/List_of_biology_journals)
 
@@ -62,6 +63,7 @@ summary: ""
 - [Phenol Explorer Downloads](http://phenol-explorer.eu/downloads)
 - [Phil Ewels Software (MultiQC)](https://github.com/ewels?tab=repositories)
 - [Seqera nf-core pipelines](https://nf-co.re/pipelines)
+- [Theis Lab Software (single-cell genomics)](https://github.com/theislab)
 - [Wellcome Sanger Institute Data Directory](https://www.sanger.ac.uk/science/data/#)
 - [Wellcome Sanger Institute Tools Directory](https://www.sanger.ac.uk/science/tools/#)
 
