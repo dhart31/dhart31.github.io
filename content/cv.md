@@ -11,13 +11,17 @@ Cell: 303-501-7428
 
 ### [Black Canyon Consulting (Contractor for the NIH)](https://www.bccdc.net/) ###
 **Data Wrangler**, February 2025 - present
-- Designed and implemented a database-backed web application with [Flask](https://flask.palletsprojects.com/en/stable/), [Dash](https://dash.plotly.com/), and [DuckDB](https://duckdb.org/) to analyze petabyte-scale data storage trends for the [Sequence Read Archive](https://www.ncbi.nlm.nih.gov/sra).
+- Built and deployed a Django web application to visualize petabyte-scale data storage trends across ~40 million [Sequence Read Archive](https://www.ncbi.nlm.nih.gov/sra) records.
+- Implemented CI/CD workflows to achieve reliable, reproducible deployments using Gitlab, Kubernetes, and ArgoCD.
+- Extensive experience using [DuckDB](https://duckdb.org/) for efficient data aggregation and analytics.
+- Familiar with [United States Web Design System](https://designsystem.digital.gov/)
+
 ### [ASRT, Inc. (Contractor for the CDC)](https://www.asrtinc.com/)
 **Data Manager**, December 2022 - January 2025
 
 - Developed and deployed whole-genome sequencing analysis pipelines with [Snakemake](https://snakemake.github.io/) and [Nextflow](https://www.nextflow.io/) for rapid nationwide surveillance and research of measles and mumps.
 
-- Built a cloud-based ETL pipeline with [Azure Data Factory](https://azure.microsoft.com/en-us/products/data-factory) and [Databricks](https://www.databricks.com/) to automate quality assessment of >100 molecular laboratories worldwide.
+- Built a cloud-based ETL pipeline with Azure Data Factory and Databricks to automate quality assessment of >100 molecular laboratories worldwide.
 
 - Created an interactive [RShiny](https://shiny.posit.co/) dashboard to visualize a global measles sequence database ([MeaNS2](https://who-gmrln.org/means2)). Used Javascript libraries D3 and Highcharts to display phylogenetic trees and geographic map plots.
 
