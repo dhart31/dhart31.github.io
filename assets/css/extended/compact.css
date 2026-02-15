@@ -1,0 +1,108 @@
+/* Compact, high-density formatting for archetype posts */
+/* Only applies when body has 'compact-post' class */
+
+body.compact-post .post-content {
+    font-size: 0.85rem;
+    line-height: 1.35;
+}
+
+body.compact-post .post-content h2 {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
+    line-height: 1.25;
+    font-weight: 600;
+}
+
+body.compact-post .post-content h3 {
+    font-size: 1.05rem;
+    margin-top: 0.8rem;
+    margin-bottom: 0.3rem;
+    line-height: 1.25;
+    font-weight: 600;
+}
+
+body.compact-post .post-content h4 {
+    font-size: 0.95rem;
+    margin-top: 0.6rem;
+    margin-bottom: 0.25rem;
+    line-height: 1.25;
+    font-weight: 600;
+}
+
+body.compact-post .post-content p {
+    margin-bottom: 0.5rem;
+}
+
+body.compact-post .post-content ul,
+body.compact-post .post-content ol {
+    margin-bottom: 0.5rem;
+    margin-top: 0.3rem;
+    padding-left: 1.3rem;
+}
+
+body.compact-post .post-content li {
+    margin-bottom: 0.2rem;
+    line-height: 1.35;
+}
+
+body.compact-post .post-content strong {
+    font-weight: 600;
+}
+
+/* Reduce spacing in nested lists */
+body.compact-post .post-content ul ul,
+body.compact-post .post-content ol ol,
+body.compact-post .post-content ul ol,
+body.compact-post .post-content ol ul {
+    margin-top: 0.1rem;
+    margin-bottom: 0.1rem;
+}
+
+/* Compact code blocks */
+body.compact-post .post-content pre {
+    margin-bottom: 0.6rem;
+    font-size: 0.8rem;
+    line-height: 1.3;
+}
+
+body.compact-post .post-content code {
+    font-size: 0.8rem;
+}
+
+/* Tighten up blockquotes */
+body.compact-post .post-content blockquote {
+    margin: 0.6rem 0;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+}
+
+/* Reduce spacing in tables */
+body.compact-post .post-content table {
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem;
+}
+
+body.compact-post .post-content th,
+body.compact-post .post-content td {
+    padding: 0.3rem 0.5rem;
+}
+
+/* Make the TOC more compact too */
+body.compact-post .toc {
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+body.compact-post .toc ul {
+    padding-left: 1rem;
+}
+
+/* Style author notes with distinct color */
+body.compact-post .post-content .author-note {
+    color: #c65d21;
+}
+
+body.compact-post .post-content .author-note p {
+    margin-bottom: 0.5rem;
+}

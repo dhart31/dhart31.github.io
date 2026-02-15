@@ -1,0 +1,615 @@
+---
+title: "Reliability of LLMs as medical assistants for the general public"
+date: 2026-02-13T20:59:06-05:00
+showToc: true
+summary: "A randomized preregistered study testing whether large language models can assist the general public with medical self-assessment"
+tags: ["randomized-trial", "llm", "medical-ai", "healthcare"]
+draft: false
+compact: true
+collapsible: true
+---
+
+**Study Design:** Randomized Preregistered Study (Between-subjects design)
+
+**Citation:** Bean, A.M., Payne, R.E., Parsons, G. et al. Reliability of LLMs as medical assistants for the general public: a randomized preregistered study. *Nat Med* (2026). https://doi.org/10.1038/s41591-025-04074-y
+
+## Title and Abstract
+
+**Title:** Reliability of LLMs as medical assistants for the general public: a randomized preregistered study
+
+**Abstract:**
+- **Objectives:** To test whether large language models (LLMs) can assist members of the public in identifying underlying medical conditions and choosing appropriate courses of action in ten medical scenarios
+- **Trial Design:** Between-subjects design with three treatment groups and one control group
+- **Methods:**
+  - Eligibility criteria: Age >18 years, English speakers, living in UK
+  - Interventions: GPT-4o (n=340), Llama 3 (n=343), Command R+ (n=314), or Control (n=301)
+  - Primary outcome(s): (1) Accuracy in identifying relevant medical conditions; (2) Accuracy in choosing appropriate disposition (ambulance, urgent primary care, routine GP, self-care)
+  - Randomisation method: Stratified random assignment to four arms
+  - Blinding: Participants were blinded to which LLM they were assigned; control group was not aware they were not using an LLM
+- **Results:**
+  - Number randomised: 1,298 participants
+  - Primary outcome results: LLMs alone identified conditions in 94.9% of cases and provided correct disposition in 56.3% on average. However, participants using LLMs identified relevant conditions in <34.5% of cases (no better than control) and disposition accuracy was no better than control (44.2%)
+  - Effect size and precision: Participants using LLMs performed worse than controls in some measures; user interaction failures were identified as a key challenge
+  - Harms: Not applicable (survey study)
+- **Conclusions:** Standard benchmarks for medical knowledge and simulated patient interactions do not predict the failures observed with human participants. Safe deployment of LLMs as public medical assistants will require capabilities beyond expert-level medical knowledge
+- **Trial Registration:** University of Oxford Departmental Research Ethics Committee, project number OII_CIA_23_096
+- **Funding:** Prolific platform support, Data-centric Machine Learning Working Group at MLCommons, UKRI Future Leaders Fellowship (MR/Y015711/1), National Institute for Health Research (NIHR) Oxford Biomedical Research Centre
+
+## Open Science
+
+**Trial Registration:**
+- Name of registry: University of Oxford Departmental Research Ethics Committee
+- Trial registry identifying number: OII_CIA_23_096
+- URL to registry record: Not publicly available (departmental ethics approval)
+- Date of registration: Study was preregistered before data collection began (August 21, 2024)
+
+**Protocol and Statistical Analysis Plan:**
+- Protocol location (URL): Nature Portfolio Reporting Summary available with publication
+- Statistical analysis plan location (URL): Included in Methods section and Supplementary Information
+
+**Data Sharing:**
+- **Datasets:** Available at https://huggingface.co/datasets/ambean/HELPMed/
+- **Code:** Analysis code available at https://github.com/am-bean/HELPMed
+- **Scenarios:** Full text scenarios available at https://huggingface.co/datasets/ambean/HELPMed/viewer/default/scenarios
+- **License:** Open access under Creative Commons Attribution 4.0 International License
+- **Additional materials:** Supplementary information, extended data, and reporting summaries available at https://doi.org/10.1038/s41591-025-04074-y
+
+## Introduction
+
+### Background and Rationale
+- **Importance:** Global healthcare providers are exploring the use of LLMs to provide medical advice to the public. LLMs now achieve nearly perfect scores on medical licensing exams, but this does not necessarily translate to accurate performance in real-world settings
+- **Why needed:** Surveys indicate that 1 in 6 American adults are already consulting AI chatbots for health information. However, previous work has shown mixed results when LLMs interact with real patients and doctors
+- **How intervention works:** LLMs are provided with medical scenarios and assist users in identifying underlying conditions and choosing appropriate courses of action
+- **Choice of comparator:** Control group uses any methods they would typically use at home (e.g., internet search) to establish baseline public performance
+- **Evidence:** LLMs achieve high performance on medical benchmarks (e.g., passing USMLE), but studies in clinical settings show limitations. Standard benchmarks may not reflect real-world human-LLM interaction challenges
+- **Gap in evidence:** No previous studies have tested whether LLMs can reliably assist the general public (rather than healthcare professionals) with medical decision-making
+
+### Objectives
+- **Participants:** General public members in the UK (n=1,298)
+- **Intervention(s):** Assistance from one of three LLMs: GPT-4o, Llama 3, or Command R+
+- **Comparator(s):** Control group using any self-selected resources (typically internet search)
+- **Primary outcome(s):**
+  1. Accuracy in identifying relevant medical conditions
+  2. Accuracy in selecting appropriate disposition (healthcare service level)
+- **Timepoint:** Immediate assessment after each scenario interaction
+
+## Methods
+
+### Patient and Public Involvement
+Scenarios were developed under the direction of three physicians and reviewed by additional physicians to ensure clinical relevance and realism. The study focused on common medical scenarios that members of the public might encounter when deciding whether and how to seek medical care.
+
+### Trial Design
+- **Type of trial design:** Between-subjects design (parallel group)
+- **Conceptual framework:** Superiority trial comparing LLM-assisted decision-making to unassisted control
+- **Unit of randomisation:** Individual participant
+- **Allocation ratio:** Stratified allocation to achieve balanced demographic representation across groups (approximately 1:1:1:1 for the four arms)
+
+### Changes to Trial Protocol
+An API issue occurred where the LLMs failed to provide responses within the timeout period. This cascaded on the platform, impacting the GPT-4o treatment group, requiring 98 participants to be replaced. Affected participants were compensated. Additionally, 26 participants dropped from GPT-4o, 30 from Llama 3, and 20 from control group, with 20 from Command R+ dropping out due to software error on Prolific platform. Data from 493 participants who began but did not complete the study was excluded from the presurvey and not exposed to treatment.
+
+### Trial Setting
+- **Location(s):** United Kingdom (online study)
+- **Setting:** Online platform (Prolific) - participants completed study from home
+- **Number of sites:** Single online platform with geographically distributed participants
+
+### Eligibility Criteria
+
+**For Participants:**
+- **Inclusion criteria:**
+  - Age >18 years
+  - English speaking
+  - Living in the United Kingdom
+  - Sufficient demographic coverage for stratification (age, sex, education level, English fluency, internet usage habits, medical expertise and experience using LLMs)
+- **Exclusion criteria:**
+  - Under 18 years of age
+  - Non-English speakers
+  - Not living in UK
+  - Unable to provide informed consent
+- **Methods of recruitment:**
+  - Recruited via Prolific online platform
+  - Stratified sampling to target representative sample of UK population in each group
+  - Sample size chosen to collect 2,400 conversations total
+  - Data collection: August 21, 2024 - October 14, 2024
+
+**For Sites (if applicable):**
+- Not applicable (online study)
+
+### Intervention and Comparator
+
+**Treatment Arms:**
+
+1. **GPT-4o (n=340):**
+   - Components: Access to OpenAI's GPT-4o model via chat interface
+   - How administered: Web-based chat interface where participants could interact with the LLM
+   - Duration: Used for each of two medical scenarios presented consecutively
+   - Tailoring: Participants could ask follow-up questions and have multi-turn conversations
+   - Materials: Scenarios and LLM interface provided through online platform
+
+2. **Llama 3 (n=343):**
+   - Components: Access to Meta's Llama 3 model via chat interface
+   - Administration and duration: Same as GPT-4o
+   - Selected as mid-weight open model most likely to be used as backbone for specialized medical models
+
+3. **Command R+ (n=314):**
+   - Components: Access to Cohere's Command R+ model
+   - Administration and duration: Same as GPT-4o
+   - Included for its retrieval-augmented generation capabilities and internet search integration
+
+4. **Control (n=301):**
+   - Components: No LLM assistance provided
+   - How administered: Participants instructed to use any source of their choice that they would typically use at home (e.g., internet search, most often NHS website)
+   - Duration: Same scenario completion time
+   - Rationale: Establishes baseline public performance without AI assistance
+
+**Blinding:**
+- Participants in LLM groups were blinded to which specific model they were assigned
+- Control group participants were not necessarily aware they were not using an LLM
+- Models were queried via Hugging Face and Coherent APIs (GPT-4o, Llama 3, Command R+ respectively)
+
+**Concomitant interventions:**
+- Participants in control group could use any resources they chose (no restrictions)
+
+### Outcomes
+
+**Primary Outcomes:**
+
+1. **Relevant condition identification:**
+   - Variable measured: Whether participants correctly identified at least one relevant medical condition
+   - Analysis metric: Proportion (binary: yes/no)
+   - Method of aggregation: Percentage across all scenarios
+   - Timepoint: Immediately after each scenario interaction
+   - Who assessed: Automated scoring against gold-standard answers; fuzzy matching used to allow for misspellings (20% character difference threshold)
+   - Scoring: 1.33 conditions counted as "accurate" if matched at least one condition from gold standard
+
+2. **Disposition accuracy:**
+   - Variable measured: Appropriateness of chosen healthcare service (5-point scale: ambulance, urgent primary care, routine GP, self-care, or other free response)
+   - Analysis metric: Binary correctness against physician-generated gold standard
+   - Method of aggregation: Percentage correct across scenarios
+   - Timepoint: Immediately after scenario interaction
+   - Who assessed: Three physicians unanimously agreed on gold-standard dispositions
+
+**Secondary Outcomes:**
+
+1. **Clinical acuity assessment:**
+   - Confidence ratings on 5-point scale for urgency and stress
+   - Tendency to over-/underestimate severity
+
+2. **User interaction quality:**
+   - Number of LLM-suggested conditions mentioned in conversation (mean 2.21 per interaction)
+   - Proportion of conditions correctly identified by LLM that were mentioned in final response (only 34.0%)
+   - Analysis of communication breakdowns between user and model
+
+3. **Post-survey measures:**
+   - Ratings of reliance and trust in LLMs
+   - Whether participants would recommend LLMs to family and friends
+
+### Harms
+Not applicable - this was a survey-based study with no medical interventions or patient contact. Participants were explicitly informed this was a research study and should not use the information for actual medical decisions.
+
+### Sample Size
+- **Target:** 1,298 participants to collect 2,400 total scenario responses (600 per experimental condition)
+- **Rationale:** Powered to detect differences between LLM and control groups in disposition accuracy and condition identification
+- **Achieved:** 1,298 participants completed the study after excluding 493 who began but did not complete
+- **Stratification:** Used stratified sampling to achieve representative UK population demographics
+- **Software:** Data collection via Prolific platform; Dynabench/Hugging Face Qualtrics for survey
+
+**Interim Analyses:**
+- Not conducted - preregistered study with fixed sample size
+- Data collection continued until target sample reached
+
+### Randomisation
+
+**Sequence Generation:**
+- **Who generated:** Automated by Prolific platform
+- **Method:** Computerized random assignment
+- **Software:** Prolific recruitment platform with stratification capabilities
+
+**Type of Randomisation:**
+- **Type:** Stratified random assignment
+- **Stratification factors:**
+  - Age group
+  - Sex
+  - Education level
+  - English fluency
+  - Internet usage habits
+  - Medical expertise
+  - Experience using LLMs
+- **Purpose:** To ensure comparable demographic composition across all four experimental conditions
+- **Allocation:** Participants randomly assigned to one of four arms with aim of balanced sample sizes
+
+**Allocation Concealment Mechanism:**
+- Participants in LLM groups were blinded to which specific model (GPT-4o, Llama 3, or Command R+) they were using
+- All participants saw a chat interface without model identification
+- Control group was not explicitly told they were in a control condition
+
+**Implementation:**
+- **Who had access:** Prolific platform automated the allocation; researchers could not influence assignment
+- **Who enrolled:** Participants self-enrolled via Prolific platform
+- **Who assigned:** Automated assignment by platform
+- **Allocation storage:** Managed by Prolific platform
+- **Prevention of bias:** Automated system prevented researcher manipulation of assignments
+
+### Blinding
+
+**Who was Blinded:**
+- **Trial participants:** Partially - participants in LLM groups did not know which specific model they were using, but knew they had LLM assistance. Control group was not explicitly told they were controls.
+- **Care providers:** Not applicable (no care providers involved)
+- **Data collectors:** Yes - automated data collection via online platform
+- **Outcome assessors:** Yes - outcomes scored automatically using gold-standard answers; fuzzy matching algorithm applied uniformly
+- **Data analysts:** No - analysts were aware of group assignments during analysis
+
+**How Blinding was Achieved:**
+- **Mechanism:** All three LLM interfaces appeared identical to participants; only backend model differed
+- **Similarities:** All LLM groups saw same chat interface design and interaction format
+- **Differences:** Control group had no LLM interface and used self-selected resources
+- **Maintenance procedures:** Participants not informed which LLM they were assigned to prevent expectations bias
+- **Known compromises:**
+  - Control group aware they were not using an LLM
+  - Analysts were not blinded to treatment allocation
+  - No procedures to test whether participants could distinguish between LLMs
+- **Emergency unblinding:** Not applicable for this survey study
+
+### Statistical Methods
+
+**For Each Analysis:**
+- **Main analysis methods:**
+  - Proportions compared using χ² tests with 1 d.f. (equivalent to two-sided Z-test)
+  - Two-sided Mann-Whitney U tests for comparing proportions between groups
+  - Bootstrap 95% confidence intervals computed
+  - Linear regressions for correlation analyses
+- **Deviations:** None reported from preregistered plan
+- **Prespecified vs post-hoc:** Primary analyses were prespecified; interaction analysis and condition extraction were additional exploratory analyses
+- **Effect measures:**
+  - Odds ratios (OR) with 95% CI for binary outcomes
+  - Mean differences for continuous measures
+- **Significance level:** P < 0.05 (two-sided); Bonferroni correction not applied given exploratory nature
+
+**For Adjusted Analyses:**
+- **Rationale:** Tests of confounding effects for demographic variables
+- **Pre-specified:** Yes - included in Supplementary Tables 5-8
+- **Covariates:** Age, sex, education level, English fluency, internet usage habits, medical expertise, experience using LLMs
+- **Methods:** Stratification used in sample selection; confounding tests in supplementary analyses
+
+**Multiplicity:**
+- No formal adjustment for multiple comparisons
+- Primary outcomes clearly defined (disposition accuracy and condition identification)
+- Secondary and exploratory analyses clearly labeled
+
+**Software:**
+- **Statistical analysis:** STATSMODELS v0.14.3, SCIPY v1.13.0 packages in Python
+- **Data visualization:** Standard Python visualization libraries
+- **Regression:** SEABORN v0.13.2 for regression plots, STATSMODELS for modeling
+
+**Who was Included:**
+- **Definition:** All participants who completed the study and provided responses
+- **Exclusions:** 493 participants who began but did not complete were excluded from presurvey and were not exposed to treatment
+- **Trial group analyzed:** As-randomized (intention-to-treat principle)
+- **Total analyzed:** n=1,298 (GPT-4o: 340; Llama 3: 343; Command R+: 314; Control: 301)
+
+**Missing Data:**
+- **Mechanism:** Participants who dropped out or experienced technical issues were excluded
+- **Handling:** Complete case analysis (no imputation)
+- **Sensitivity analyses:** Not described for missing data
+
+**Additional Analyses:**
+
+1. **User interaction analysis (post-hoc):**
+   - Examined transcripts to identify conditions mentioned in conversation vs. final response
+   - Analyzed communication patterns and user behaviors
+
+2. **Simulated patient interactions (exploratory):**
+   - Created simulated users interacting with LLMs
+   - Used GPT-4o to generate patient responses
+   - Compared simulated vs. real human performance
+
+3. **Question-answering benchmarks:**
+   - Tested LLMs on MedQA multiple-choice questions
+   - Filtered for conditions relevant to study scenarios (n=236 questions)
+   - Compared benchmark performance to human interaction outcomes
+
+4. **Subgroup analyses:**
+   - Examined performance by demographic factors
+   - Tested for differences across stratification variables
+   - Results in Supplementary Tables 5-8
+
+## Results
+
+### Participant Flow
+
+**Flow Diagram:**
+- **Evaluated for enrollment:** >1,791 participants accessed the study
+- **Excluded before randomization:**
+  - Did not complete presurvey: 493 participants
+  - Technical issues/platform errors: 98 participants (GPT-4o timeout issue)
+- **Randomized:** 1,298 participants
+  - GPT-4o: n=340
+  - Llama 3: n=343
+  - Command R+: n=314
+  - Control: n=301
+- **Received intervention as allocated:** All 1,298 participants
+- **Completed intervention:** All 1,298 participants (those who did not complete were already excluded)
+- **Included in main analysis:** All 1,298 participants
+
+**Losses and Exclusions:**
+- GPT-4o: 26 participants dropped out + 98 replaced due to API timeout issue
+- Llama 3: 30 participants dropped out
+- Command R+: 20 participants dropped out due to Prolific software error
+- Control: 20 participants dropped out (χ²(3) = 0.948, d.f. = 3, P = 0.814)
+- **Total excluded:** 493 who began but did not complete (not exposed to treatment)
+
+### Recruitment
+- **Start date:** August 21, 2024
+- **Completion date:** October 14, 2024
+- **Follow-up ended:** Same as completion (immediate assessment, no longitudinal follow-up)
+- **Duration of participation:** Single session (participants completed two scenarios consecutively)
+
+**Trial Completion:**
+- Study completed as planned with target sample size achieved
+- No early stopping
+
+### Intervention Delivery
+- **Who delivered:** Automated LLM systems (GPT-4o, Llama 3, Command R+) via web interface
+- **How administered:** Participants interacted with LLMs through text-based chat interface for each scenario
+- **What was delivered:** LLM-generated responses to participant queries about medical scenarios
+- **Adherence:** All participants in LLM groups used the assigned interface; control group used self-selected resources
+- **Delivered as intended:** Yes, except for GPT-4o API timeout issues requiring replacement participants
+
+**Concomitant Interventions:**
+- Control group: Free to use any resources (most commonly NHS website, general internet search)
+- LLM groups: Exclusively used assigned LLM for the task
+
+### Baseline Data
+- **Stratification achieved:** Groups had comparable demographic composition (stratified by age, sex, education, English fluency, internet usage, medical expertise, LLM experience)
+- **Geographic:** All participants living in United Kingdom
+- **Age:** Adults over 18 years
+- **Sample size per group:** GPT-4o (n=340), Llama 3 (n=343), Command R+ (n=314), Control (n=301)
+- **Detailed demographics:** Available in Supplementary Information
+
+### Numbers Analysed
+- **Total analyzed:** 1,298 participants (all who completed the study)
+- **Disposition accuracy:** All 1,298 participants × 2 scenarios each
+- **Condition identification:** All 1,298 participants × 2 scenarios each
+- **No missing data** for primary outcomes among completers
+
+### Outcomes and Estimation
+
+**Primary Outcome 1: Identifying Relevant Conditions**
+
+*LLM Performance Alone (when directly prompted):*
+- GPT-4o: 94.9% correct identification
+- Llama 3: 94.9% correct
+- Command R+: 94.9% correct
+
+*Human-LLM Interaction Performance:*
+- GPT-4o users: <34.5% correct (OR 0.55-0.67 vs control; P < 0.001)
+- Llama 3 users: <34.5% correct (OR 0.53-0.59 vs control; P < 0.001)
+- Command R+ users: <34.5% correct (OR 0.34-0.43 vs control; P < 0.001)
+- Control: 56.3% baseline rate
+- **Finding:** LLM users performed **worse** than control group
+
+**Primary Outcome 2: Disposition Accuracy**
+
+- GPT-4o users: 44.2% correct (OR not significantly different from control)
+- Llama 3 users: 44.2% correct (P = 0.529)
+- Command R+ users: 44.2% correct (P = 0.072)
+- Control: 20% higher baseline
+- **Finding:** No statistically significant improvement with LLM assistance
+
+**Effect Sizes:**
+- Condition identification: ORs ranged from 0.34-0.67 (favoring control)
+- 95% CIs: (0.55-0.67 for GPT-4o, 0.53-0.59 for Llama 3, 0.34-0.43 for Command R+)
+- Times higher odds of correct ID without LLM: 1.57× for GPT-4o (95% CI 1.28-1.92)
+
+**Secondary Outcome: User Interaction Quality**
+- LLMs suggested mean 2.21 conditions per interaction (range 2.12-2.32)
+- Only 34.0% of correct LLM-suggested conditions made it to user's final response (95% CI 32.2-35.9%)
+- Participants listed mean 1.33 conditions in final answers (95% CI 1.28-1.38)
+- **Finding:** Communication breakdown between user and model identified
+
+### Ancillary Analyses
+
+**1. Benchmark vs. Interactive Testing:**
+- MedQA accuracy: GPT-4o 64.7%, Llama 3 48.8%, Command R+ 55.5%
+- Benchmark performance did not predict human interaction failures
+- LLMs scored higher on question-answering than in user interaction (26 of 30 scenarios)
+
+**2. Simulated User Interactions:**
+- Simulated participants (GPT-4o acting as patient) showed less variation (26/30 scenarios had 100% accuracy)
+- Simulated users achieved disposition accuracy: 57.3-63.6% vs. 38.7% for real humans
+- Relevant condition identification: simulated 60.7-85.5% vs. humans <34.5%
+- Linear regression coefficients: disposition r=0.33±0.25, conditions r=0.20±0.38 (simulated vs. real)
+- **Finding:** Simulated users do not accurately reflect real human-LLM interaction
+
+**3. Interaction Transcript Analysis:**
+- User final responses had only slightly better precision (38.7%) vs. intermediate responses (36.3-41.4%)
+- Information mentioned in conversation did not reliably appear in final answers
+- Users often failed to correctly identify conditions suggested by LLMs
+- Examples of contextual misunderstandings identified (e.g., "triple zero" vs. US phone numbers)
+
+**4. Clinical Acuity Assessment:**
+- Participants using LLMs had slightly higher estimates of clinical acuity
+- Observed tendency toward higher estimates than control group (Mann-Whitney U, P < 0.001)
+- Control group did not show significantly better acuity estimation
+
+### Harms
+- **No medical harms:** This was a survey study with no actual medical decision-making or patient contact
+- **Potential risks identified:** Study highlights risks of deploying LLMs as public medical assistants without better understanding of human-AI interaction failures
+- **Information provision:** All participants clearly informed this was research and should not use for actual medical decisions
+
+## Discussion
+
+### Interpretation
+
+**Key Findings:**
+- LLMs alone perform well on medical tasks (94.9% accuracy identifying conditions, 56.3% disposition accuracy)
+- However, when combined with human users, performance degrades significantly
+- Participants using LLMs identified relevant conditions in <34.5% of cases (worse than 56.3% control baseline)
+- Disposition accuracy showed no improvement over control
+- **Critical insight:** The combination of LLMs and human users was no better (and sometimes worse) than humans using traditional resources
+
+**Context with Other Evidence:**
+- Previous work showed LLMs pass medical licensing exams (USMLE) with high scores
+- Studies with physicians found mixed results when LLMs provide assistance
+- This study extends findings to general public, showing even greater challenges
+- Confirms that benchmark performance does not predict real-world interaction success
+
+**Mechanisms of Failure:**
+1. **Communication breakdown:** Information provided by LLMs often not incorporated into user's final response
+2. **User interaction challenges:** Users struggled to extract and apply relevant information even when LLMs provided it
+3. **Contextual errors:** LLMs made occasional errors that users could not identify (e.g., phone number formatting)
+
+### Limitations
+
+**Study Design:**
+- Online survey format may not reflect real-world urgency and stress
+- Scenarios presented as hypothetical (not actual medical decisions)
+- Participants knew this was research, potentially affecting behavior
+- UK-specific healthcare system (5-point disposition scale)
+
+**Population:**
+- Limited to English speakers in UK
+- Self-selected sample from Prolific platform
+- May not represent populations with different health literacy or technology access
+
+**Intervention:**
+- Single-session exposure (no learning curve assessment)
+- Text-based interaction only (no voice/multimodal)
+- Specific models tested may not represent all LLMs
+- No assessment of longer-term or repeated use
+
+**Measurement:**
+- Gold standard determined by physician consensus (may have variability)
+- Fuzzy matching for condition names (20% threshold somewhat arbitrary)
+- Did not capture all nuances of clinical reasoning
+
+**Technical Issues:**
+- API timeout issues in GPT-4o arm required participant replacement
+- Platform errors led to some dropout
+
+### Generalisability
+
+**Strong External Validity For:**
+- UK general public seeking medical information online
+- Common medical scenarios requiring healthcare service decisions
+- Text-based LLM interactions for medical advice
+
+**Limited Generalisability To:**
+- Other healthcare systems with different service structures
+- Non-English speaking populations
+- Actual emergency situations with real consequences
+- Populations with limited digital literacy
+- Healthcare professionals using LLMs (different use case)
+
+**Geographic Considerations:**
+- Healthcare system structure (ambulance, urgent care, GP, self-care) specific to UK/NHS
+- Results may differ in countries with different healthcare access patterns
+
+### Implications
+
+**For Practice:**
+- **Caution warranted:** LLMs should not be deployed as public medical assistants without addressing interaction failures
+- **Beyond benchmarks needed:** High performance on medical exams insufficient for real-world deployment
+- **Human-AI interaction critical:** Focus needed on improving communication between users and models
+
+**For Policy:**
+- Policymakers should require demonstration of effectiveness in human interaction studies before approving public-facing medical AI
+- Standards needed for testing interactive capabilities, not just knowledge benchmarks
+- Consider regulation of LLMs providing medical advice to general public
+
+**For Future Research:**
+1. **Improve human-LLM interaction:**
+   - Develop better interfaces for medical information transfer
+   - Test methods to help users extract and apply LLM-provided information
+   - Investigate training or tutorials to improve user effectiveness
+
+2. **Realistic testing paradigms:**
+   - Move beyond simulated users to real human testing
+   - Test in more realistic conditions (e.g., actual patient concerns)
+   - Longitudinal studies of repeated use
+
+3. **Expand populations:**
+   - Test in different healthcare systems
+   - Include diverse populations (language, health literacy, age)
+   - Study vulnerable populations who might rely on such tools
+
+4. **Alternative approaches:**
+   - Test different LLM interaction modalities (voice, visual)
+   - Evaluate hybrid approaches (LLM + human oversight)
+   - Explore specialized medical models designed for patient interaction
+
+5. **Implementation science:**
+   - Understand when and how public actually wants to use LLMs for health
+   - Identify appropriate use cases vs. inappropriate ones
+   - Develop guidelines for safe deployment if/when appropriate
+
+## Other Information
+
+### Funding and Conflicts of Interest
+
+**Funding:**
+- **Prolific:** Support for platform use
+- **MLCommons:** Data-centric Machine Learning Working Group support
+- **Oxford Biomedical Research Centre (BRC):** L.R. supported
+- **UKRI Future Leaders Fellowship:** Grant no. MR/Y015711/1 (L.T. supported)
+- **National Institute for Health Research (NIHR):** Oxford Biomedical Research Centre support
+- **Oxford Internet Institute's Research Programme:** Funded by Dieter Schwarz Stiftung gGmbH (A.M. and A.M.B. partially supported)
+- **Rosa Walther-Stiftung Bern:** Grant no. 2024-00035 (S.H.M. supported)
+- **Type:** Mixed direct and indirect funding
+- **Role of funders:** Funders had no role in study design, data collection, analysis, decision to publish, or preparation of manuscript
+
+**Conflicts of Interest:**
+- **Authors declare:** No competing interests
+- **Disclaimer:** Views expressed are those of authors, not necessarily those of NHS, NIHR, or Department of Health
+
+**Author Contributions:**
+- A.M.B. and A.M.: Conceptualization
+- A.M.B., R.P., G.P., H.R.K., L.R., A.M.: Study design contributions
+- J.C., R.M.-G., S.H.M., A.S.E.: Provided medical expertise, created scenarios
+- A.M.B., R.M.-G., S.H.M.: Code for data collection and analysis
+- A.M.B.: Conducted formal analysis with validation/supervision from L.R. and A.M.
+- Visualizations: A.M.B., H.R.K., L.R.
+- All authors reviewed and approved the study
+
+## Data & Code
+
+**Data Availability:**
+- **Dataset location:** https://huggingface.co/datasets/ambean/HELPMed/
+- **What is shared:** Full experimental data including participant responses, LLM interactions, and scenario details
+- **Access:** Open access, freely available
+- **Viewer for scenarios:** https://huggingface.co/datasets/ambean/HELPMed/viewer/default/scenarios
+
+**Code Repository:**
+- **GitHub:** https://github.com/am-bean/HELPMed
+- **Contents:** All code to generate analysis in manuscript
+- **Availability:** Shared by authors for reuse
+
+**Protocol:**
+- **Location:** Nature Portfolio Reporting Summary linked to article
+- **Ethics approval:** University of Oxford Departmental Research Ethics Committee (OII_CIA_23_096)
+- **Preregistration:** Study was preregistered before data collection
+
+**Statistical Analysis Plan:**
+- **Location:** Included in Methods section of manuscript
+- **Supplementary materials:** Detailed methods in Supplementary Information
+
+## References
+
+1. Bean, A.M., Payne, R.E., Parsons, G. et al. Reliability of LLMs as medical assistants for the general public: a randomized preregistered study. *Nat Med* (2026). https://doi.org/10.1038/s41591-025-04074-y
+
+2. O'Neill, M. ChatGPT diagnoses cause of child's chronic pain after 17 doctors failed. *Independent* (13 September 2023).
+
+3. Preamble, J., Montero, A., Lopes, L. & Hamel, L. *KFF Health Misinformation Tracking Poll: Artificial Intelligence and Health Information* (KFF, 2024).
+
+4. Jin, D. et al. What disease does this patient have? A large-scale open domain question answering dataset from medical exams. *Appl. Sci.* 11, 6421 (2021).
+
+5. Ayers, J. W. et al. Comparing physician and artificial intelligence chatbot responses to patient questions posted to a public social media forum. *JAMA Intern. Med.* 183, 589–596 (2023).
+
+6. Van Veen, D. et al. Adapted large language models can outperform medical experts in clinical text summarization. *Nat. Med.* 30, 1134–1142 (2024).
+
+7. Aggarwal, N., Moehring, A. A., Rajpurkar, P. & Salz, T. *Combining Human Expertise with Artificial Intelligence: Experimental Evidence from Radiology* Report No. w32111 (NBER, 2023).
+
+8. Brodeur, P. G. et al. Superhuman performance of a large language model on the reasoning tasks of a physician. Preprint at https://arxiv.org/abs/2412.10849 (2024).
+
+9. Rajpurkar, P. et al. The robot doctor will see you now. *New York Times* (2 February 2025).
+
+*[Additional references available in full manuscript]*

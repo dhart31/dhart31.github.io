@@ -1,0 +1,80 @@
+/* Collapsible sections with dividing lines */
+/* Only applies when body has 'collapsible-sections' class */
+
+body.collapsible-sections .post-content details {
+    border-top: 2px solid var(--border);
+    padding: 0.8rem 0;
+    margin: 0;
+}
+
+body.collapsible-sections .post-content details:last-of-type {
+    border-bottom: 2px solid var(--border);
+}
+
+body.collapsible-sections .post-content details summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.1em;
+    padding: 0.5rem 0;
+    margin: 0;
+    list-style: none;
+    position: relative;
+    padding-left: 1.5rem;
+    user-select: none;
+    transition: color 0.2s ease;
+}
+
+body.collapsible-sections .post-content details summary:hover {
+    color: var(--primary);
+}
+
+/* Remove default disclosure triangle */
+body.collapsible-sections .post-content details summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Custom arrow indicator */
+body.collapsible-sections .post-content details summary::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    font-size: 0.8em;
+    transition: transform 0.2s ease;
+    color: var(--secondary);
+}
+
+body.collapsible-sections .post-content details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+/* Content inside collapsible section */
+body.collapsible-sections .post-content details > *:not(summary) {
+    margin-left: 1.5rem;
+}
+
+body.collapsible-sections .post-content details[open] summary {
+    margin-bottom: 0.5rem;
+}
+
+/* Smooth animation for opening/closing */
+body.collapsible-sections .post-content details summary {
+    transition: margin-bottom 0.2s ease;
+}
+
+/* Nested details (if needed) */
+body.collapsible-sections .post-content details details {
+    border-top: 1px solid var(--tertiary);
+    border-bottom: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+body.collapsible-sections .post-content details details summary {
+    font-size: 1em;
+    font-weight: 500;
+}
+
+body.collapsible-sections .post-content details details summary::before {
+    font-size: 0.7em;
+}
