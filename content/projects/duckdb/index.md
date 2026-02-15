@@ -293,6 +293,10 @@ body, html {
                 <button class="export-button" onclick="exportParquet()">Parquet</button>
             </div>
 
+            <div id="share-button-container" class="export-buttons" style="display: none;">
+                <button class="export-button" onclick="shareSession()">Share Session</button>
+            </div>
+
             <div class="uploaded-files" id="uploaded-files"></div>
         </div>
     </div>
@@ -449,10 +453,11 @@ async function executeQuery(query) {
         const output = formatTable(columns, rows);
         addTerminalOutput(output + '\n');
 
-        // Show export buttons if there are results
+        // Show export and share buttons if there are results
         if (rows.length > 0) {
             showExportButtons();
         }
+        showShareButton();
     } catch (error) {
         addTerminalOutput(`Error: ${error.message}\n`, 'error');
         hideExportButtons();
@@ -571,6 +576,70 @@ async function exportParquet() {
     } catch (error) {
         addTerminalOutput(`-- Export error: ${error.message}\n`, 'error');
     }
+}
+
+// Session sharing
+function shareSession() {
+    const sessionData = {
+        queries: queryHistory,
+        files: uploadedFiles.filter(f => f.url).map(f => f.url) // Only share files loaded from URLs
+    };
+
+    const encoded = btoa(JSON.stringify(sessionData));
+    const shareUrl = `${window.location.origin}${window.location.pathname}#session=${encoded}`;
+
+    // Copy to clipboard
+    navigator.clipboard.writeText(shareUrl).then(() => {
+        addTerminalOutput(`-- Session URL copied to clipboard!\n-- ${queryHistory.length} queries shared\n`, 'success');
+        updateStatus('success', 'Shareable link copied to clipboard!');
+    }).catch(err => {
+        addTerminalOutput(`-- Share URL: ${shareUrl}\n`, 'success');
+        updateStatus('success', 'Share URL generated (see terminal)');
+    });
+}
+
+function restoreSession() {
+    const hash = window.location.hash;
+    if (!hash.startsWith('#session=')) return;
+
+    try {
+        const encoded = hash.substring(9); // Remove '#session='
+        const sessionData = JSON.parse(atob(encoded));
+
+        if (sessionData.queries && sessionData.queries.length > 0) {
+            queryHistory = sessionData.queries;
+            historyIndex = queryHistory.length;
+
+            addTerminalOutput(`-- Restored session with ${queryHistory.length} queries\n`, 'success');
+            addTerminalOutput('-- Use Up/Down arrows to browse query history\n\n', 'success');
+
+            // Show queries in terminal
+            sessionData.queries.forEach(q => {
+                addTerminalOutput(`duckdb> ${q}\n`);
+            });
+            addTerminalOutput('\n');
+
+            showShareButton();
+        }
+
+        // TODO: Auto-load files from URLs if needed
+        // if (sessionData.files && sessionData.files.length > 0) {
+        //     // Could auto-load files from public URLs
+        // }
+
+    } catch (error) {
+        console.error('Failed to restore session:', error);
+    }
+}
+
+function showShareButton() {
+    if (queryHistory.length > 0) {
+        document.getElementById('share-button-container').style.display = 'flex';
+    }
+}
+
+function hideShareButton() {
+    document.getElementById('share-button-container').style.display = 'none';
 }
 
 // Terminal input handling
@@ -739,10 +808,11 @@ async function handleFolderInputChange(event) {
     event.target.value = '';
 }
 
-// Expose export functions to window for onclick handlers
+// Expose export and share functions to window for onclick handlers
 window.exportCSV = exportCSV;
 window.exportJSON = exportJSON;
 window.exportParquet = exportParquet;
+window.shareSession = shareSession;
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
@@ -750,6 +820,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('folder-input').addEventListener('change', handleFolderInputChange);
     document.getElementById('folder-button').addEventListener('click', handleFolderSelect);
     initDuckDB();
+    restoreSession();
     terminalInput.focus();
 });
 </script>
